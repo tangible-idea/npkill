@@ -18,7 +18,8 @@ import {
   timeout,
 } from 'rxjs';
 import { convertBytesToGb } from '../../utils/unit-conversions.js';
-import { join } from 'path';
+import { join, dirname } from 'path';
+import { existsSync } from 'fs';
 import os from 'os';
 
 export interface CalculateFolderStatsOptions {
@@ -39,6 +40,8 @@ export class ScanService {
     };
 
     const results$ = this.npkill.startScan$(config.folderRoot, params);
+    const isFlutterProfile = config.profiles.includes('flutter');
+
     const nonExcludedResults$ = results$.pipe(
       filter(
         (path) =>
@@ -47,6 +50,10 @@ export class ScanService {
             config.excludeSensitiveResults,
           ),
       ),
+      filter((path) => {
+        if (!isFlutterProfile) return true;
+        return this.isFlutterProject(path.path);
+      }),
     );
 
     return nonExcludedResults$.pipe(
@@ -125,6 +132,30 @@ export class ScanService {
         return of(nodeFolder);
       }),
     );
+  }
+
+  private isFlutterProject(folderPath: string): boolean {
+    const parent = dirname(folderPath);
+    if (!existsSync(join(parent, 'pubspec.yaml'))) {
+      return false;
+    }
+    return !this.isFlutterSdk(folderPath);
+  }
+
+  private isFlutterSdk(folderPath: string): boolean {
+    let current = folderPath;
+    for (let i = 0; i < 8; i++) {
+      const parent = dirname(current);
+      if (parent === current) break;
+      if (
+        existsSync(join(parent, 'bin', 'flutter')) ||
+        existsSync(join(parent, 'bin', 'flutter.bat'))
+      ) {
+        return true;
+      }
+      current = parent;
+    }
+    return false;
   }
 
   private isExcludedDangerousDirectory(

@@ -8,7 +8,7 @@ import {
 import { PROFILE } from '../interfaces/profile.interface.js';
 import { validateConfig, applyFileConfigProperties } from './config/index.js';
 
-const DEFAULT_CONFIG_FILENAME = '.npkillrc';
+const DEFAULT_CONFIG_FILENAME = '.flutterkillrc';
 
 /**
  * Service responsible for loading and parsing .npkillrc configuration files.

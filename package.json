@@ -1,7 +1,7 @@
 {
-  "name": "npkill",
+  "name": "flutterkill",
   "version": "0.12.2",
-  "description": "List any node_modules directories in your system, as well as the space they take up. You can then select which ones you want to erase to free up space.",
+  "description": "Find and delete unnecessary Flutter/Dart build artifacts to free up disk space.",
   "exports": "./lib/index.js",
   "type": "module",
   "engines": {
@@ -11,20 +11,20 @@
     "access": "public"
   },
   "bin": {
-    "npkill": "lib/index.js"
+    "flutterkill": "lib/index.js"
   },
-  "author": "Nya Garcia & Juan Torres",
+  "author": "Nya Garcia & Juan Torres & Mark Choi",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zaldih/npkill"
+    "url": "https://github.com/tangible-idea/npkill"
   },
   "license": "MIT",
   "keywords": [
     "cli",
     "free up space",
-    "npm",
-    "node",
-    "modules",
+    "flutter",
+    "dart",
+    "build",
     "clean",
     "tool",
     "delete",

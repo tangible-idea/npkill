@@ -10,11 +10,11 @@ export const INFO_MSGS = {
   DELETING_FOLDER: '[..deleting..] ',
   ERROR_DELETING_FOLDER: '[ ERROR ] ',
   HEADER_COLUMNS: 'Age    Size', // Δ (delta) for last_mod/age?
-  HELP_TITLE: ' NPKILL HELP ',
+  HELP_TITLE: ' FLUTTERKILL HELP ',
   MIN_CLI_CLOMUNS:
     'Oh no! The terminal is too narrow. Please, ' +
     'enlarge it (This will be fixed in future versions. Disclose the inconveniences)',
-  NEW_UPDATE_FOUND: 'New version found! npm i -g npkill for update.',
+  NEW_UPDATE_FOUND: 'New version found! npm i -g flutterkill for update.',
   NO_VALID_SORT_NAME: 'Invalid sort option. Available: path | size | age',
   NO_VALID_SIZE_UNIT: 'Invalid size-unit option. Available: auto | mb | gb',
   STARTING: 'Initializing ',

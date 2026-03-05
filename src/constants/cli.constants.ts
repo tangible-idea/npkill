@@ -5,13 +5,13 @@ export const OPTIONS: ICliOptions[] = [
   {
     arg: ['-p', '--profiles'],
     description:
-      'Specifies profiles (presets) of folders to search, separated by commas (e.g., `-p python,java`, `-p all`). If used without a value, lists the available profiles. Default: `node`.',
+      'Specifies profiles (presets) of folders to search, separated by commas (e.g., `-p python,java`, `-p all`). If used without a value, lists the available profiles. Default: `flutter`.',
     name: 'profiles',
   },
   {
     arg: ['--config'],
     description:
-      'Path to a custom .npkillrc configuration file. By default, npkill looks for ~/.npkillrc.',
+      'Path to a custom .flutterkillrc configuration file. By default, flutterkill looks for ~/.flutterkillrc.',
     name: 'config',
   },
   {
@@ -107,9 +107,9 @@ const getHeader = (title: string) => {
   return pc.black(pc.bgYellow(pc.bold(` ${title} `)));
 };
 
-export const HELP_HEADER = `Npkill helps you find and manage “junk” directories left behind by development tools.
-These folders are essential while you’re actively working on a project, but over time they pile up, eating tons of space long after you’ve moved on.
-Npkill scans your directories, lists these directories with their sizes, and shows when you last touched each project, so you can quickly decide what to keep and what to clean. Easy!
+export const HELP_HEADER = `Flutterkill helps you find and manage build artifacts and caches left behind by Flutter/Dart development.
+These folders are essential while you're actively working on a project, but over time they pile up, eating tons of space long after you've moved on.
+Flutterkill scans your directories, lists these directories with their sizes, and shows when you last touched each project, so you can quickly decide what to keep and what to clean. Easy!
 
 ${getHeader('How to interact')}
  ${pc.green('SPACE / DEL')}             Delete selected result.
@@ -136,11 +136,11 @@ The progress bar provides information on the search process. It has 3 parts diff
     🭲     🭲     ┌ (gray) Directories pending to be analyzed.
  ${pc.green('▀▀▀▀▀▀▀')}${pc.white('▀▀▀▀')}${pc.gray('▀▀▀▀▀▀▀▀▀▀▀')}
 
-The header will also display other relevant contextual information, such as when selection mode is activated or npkill is started in "dry-run mode".
+The header will also display other relevant contextual information, such as when selection mode is activated or flutterkill is started in "dry-run mode".
 `;
 
 export const HELP_FOOTER = `${getHeader('Important note')}
-${pc.bold('Not all results listed are bad!')} Some applications (like vscode, Discord, etc) need those dependencies to work. If their directory is deleted, the application will probably break (until the dependencies are reinstalled). NPKILL will try to show you these results by highlighting them ⚠️.`;
+${pc.bold('Not all results listed are bad!')} Some directories may be needed by active projects. If deleted, you will need to run \`flutter pub get\` and rebuild. FLUTTERKILL will try to show you sensitive results by highlighting them ⚠️.`;
 
 export const COLORS = {
   red: 'bgRed',

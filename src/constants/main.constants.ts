@@ -20,7 +20,7 @@ export const DEFAULT_CONFIG: IConfig = {
   maxSimultaneousSearch: 6,
   showErrors: true,
   sortBy: 'none',
-  targets: ['node_modules'],
+  targets: ['build'],
   yes: false,
   jsonStream: false,
   jsonSimple: false,
@@ -78,11 +78,9 @@ export const UI_POSITIONS = {
 //   'e', // Show errors
 // ];
 
-export const BANNER = `                  __   .__.__  .__
-     ____ ______ |  | _|__|  | |  |
-    /    \\\\____ \\|  |/ /  |  | |  |
-   |   |  \\  |_> >    <|  |  |_|  |__
-   |___|  /   __/|__|_ \\__|____/____/
-        \\/|__|        \\/`;
+export const BANNER = `   ___ _       _   _            _  _ _ _
+  / __| |_   _| |_| |_ ___ _ _| |/ (_) | |
+ | __| | | | |  _|  _/ -_) '_|   <| | | |
+ |_| |_|\_,_|\__|\__\___|_| |_|\_\_|_|_|`;
 
 export const STREAM_ENCODING = 'utf8';

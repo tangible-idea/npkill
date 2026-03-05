@@ -1,7 +1,7 @@
 /* eslint-disable quotes */
 import { PROFILE } from '../interfaces/profile.interface.js';
 
-export const DEFAULT_PROFILE = 'node';
+export const DEFAULT_PROFILE = 'flutter';
 
 export const BASE_PROFILES: { [profileName: string]: PROFILE } = {
   node: {
@@ -126,6 +126,11 @@ export const BASE_PROFILES: { [profileName: string]: PROFILE } = {
     description:
       'Editor caches and import data. Godot can recreate these in a blink.',
     targets: ['.import', '.godot'],
+  },
+  flutter: {
+    description:
+      'Flutter/Dart build outputs, caches, and platform-specific artifacts. Safe to delete — just run `flutter pub get` and rebuild.',
+    targets: ['build', '.dart_tool', '.fvm', 'ephemeral', '.gradle', 'Pods'],
   },
   infra: {
     description:
