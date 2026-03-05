@@ -1,6 +1,6 @@
 {
   "name": "flutterkill",
-  "version": "0.12.2",
+  "version": "0.12.3",
   "description": "Find and delete unnecessary Flutter/Dart build artifacts to free up disk space.",
   "exports": "./lib/index.js",
   "type": "module",

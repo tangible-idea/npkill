@@ -119,6 +119,18 @@ Para salir de Flutterkill, utiliza <kbd>Q</kbd>, o si te sientes valiente, <kbd>
 
 ## Ejemplo
 
+- Mostrar ayuda y opciones disponibles:
+
+```bash
+flutterkill --help
+```
+
+- Mostrar la versión actual:
+
+```bash
+flutterkill --version
+```
+
 - Busca los artefactos de compilación de Flutter en un directorio _projects_:
 
 ```bash

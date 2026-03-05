@@ -116,6 +116,18 @@ Untuk keluar, tekan <kbd>Q</kbd> atau <kbd>Ctrl</kbd> + <kbd>c</kbd> jika Anda p
 
 ## Contoh
 
+- Tampilkan bantuan dan opsi yang tersedia:
+
+```bash
+flutterkill --help
+```
+
+- Tampilkan versi saat ini:
+
+```bash
+flutterkill --version
+```
+
 - Cari artefak build Flutter di direktori _projects_ Anda:
 
 ```bash

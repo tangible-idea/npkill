@@ -120,6 +120,18 @@ Seçili sonucun bulunduğu klasörü açmak için <kbd>o</kbd> tuşuna basabilir
 
 ## Örnekler
 
+- Yardımı ve mevcut seçenekleri gösterin:
+
+```bash
+flutterkill --help
+```
+
+- Mevcut sürümü gösterin:
+
+```bash
+flutterkill --version
+```
+
 - _projects_ dizininizdeki Flutter derleme artefaktlarını arayın:
 
 ```bash

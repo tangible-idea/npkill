@@ -140,6 +140,18 @@ $ flutterkill
 
 ## 사용 예시
 
+- 도움말 및 사용 가능한 옵션 표시:
+
+```bash
+flutterkill --help
+```
+
+- 현재 버전 표시:
+
+```bash
+flutterkill --version
+```
+
 - `~/projects` 디렉토리에서 Flutter 빌드 폴더 탐색:
 
 ```bash

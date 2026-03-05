@@ -159,6 +159,18 @@ After pressing <kbd>V</kbd> to enter range selection mode:
 
 ## Examples
 
+- Show help and available options:
+
+```bash
+flutterkill --help
+```
+
+- Show current version:
+
+```bash
+flutterkill --version
+```
+
 - Search Flutter build directories in your _projects_ directory:
 
 ```bash
