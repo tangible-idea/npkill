@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./docs/npkill-text-clean.svg" width="380" alt="flutterkill logo" />
+  <img src="./docs/flutterkill-logo.svg" width="380" alt="flutterkill logo" />
 </p>
 <p align="center">
 <img alt="npm" src="https://img.shields.io/npm/dy/flutterkill.svg">
@@ -11,7 +11,7 @@
 
 This tool allows you to list Flutter/Dart build directories (`build`, `.dart_tool`, `.gradle`, `Pods`, etc.) in your system, as well as the space they take up. You can then select which ones you want to erase to free up space.
 
-> Based on **npkill** ([github.com/voidcosmos/npkill](https://github.com/voidcosmos/npkill))
+> Inspired by **npkill** ([github.com/voidcosmos/npkill](https://github.com/voidcosmos/npkill))
 
 ## i18n
 
