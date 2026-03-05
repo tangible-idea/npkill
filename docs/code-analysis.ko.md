@@ -1,8 +1,10 @@
-# npkill 코드 분석 (한국어)
+# flutterkill 코드 분석 (한국어)
 
 ## 1) 프로젝트 한 줄 요약
 
-`npkill`은 시스템 내에서 `node_modules`(및 프로필로 지정한 대상 폴더)를 빠르게 탐색하고, 크기/수정시각/민감도 정보를 바탕으로 CLI UI 또는 JSON 형태로 정리해 주며, 필요 시 안전하게 삭제까지 수행하는 TypeScript 기반 도구입니다.
+`flutterkill`은 시스템 내에서 Flutter 빌드 산출물(`build`, `.dart_tool` 등 프로필로 지정한 대상 폴더)를 빠르게 탐색하고, 크기/수정시각/민감도 정보를 바탕으로 CLI UI 또는 JSON 형태로 정리해 주며, 필요 시 안전하게 삭제까지 수행하는 TypeScript 기반 도구입니다.
+
+> **npkill** 기반으로 제작되었습니다 ([github.com/voidcosmos/npkill](https://github.com/voidcosmos/npkill))
 
 - CLI 진입점: `src/index.ts` → `src/main.ts`[@src/index.ts#1-14](../src/index.ts#L1-L14) [@src/main.ts#17-45](../src/main.ts#L17-L45)
 - 코어 엔진: `src/core/npkill.ts`[@src/core/npkill.ts#34-161](../src/core/npkill.ts#L34-L161)
@@ -85,15 +87,15 @@
 
 ---
 
-## 5) 설정(.npkillrc) 및 프로필
+## 5) 설정(.flutterkillrc) 및 프로필
 
 ## 5.1 설정 파일 우선순위
 
 `ConfigService.loadConfig()`/`resolveConfigPath()` 기준:
 
 1. `--config` 지정 경로
-2. 현재 디렉터리 `./.npkillrc`
-3. 홈 디렉터리 `~/.npkillrc`
+2. 현재 디렉터리 `./.flutterkillrc`
+3. 홈 디렉터리 `~/.flutterkillrc`
 
 [@src/core/services/config.service.ts#18-35](../src/core/services/config.service.ts#L18-L35) [@src/core/services/config.service.ts#72-86](../src/core/services/config.service.ts#L72-L86)
 
@@ -113,18 +115,18 @@
 
 `profiles.constants.ts`에 정의된 내장 프로필:
 
-| 프로필          | 대상 폴더 예시                                                |
-| --------------- | ------------------------------------------------------------- |
-| **node** (기본) | `node_modules`, `.next`, `.nuxt`, `coverage` 등               |
-| **python**      | `__pycache__`, `.venv`, `.pytest_cache` 등                    |
-| **java**        | `target`, `.gradle`, `out`                                    |
-| **flutter**     | `build`, `.dart_tool`, `.fvm`, `ephemeral`, `.gradle`, `Pods` |
-| **android**     | `.cxx`, `externalNativeBuild`                                 |
-| **swift**       | `DerivedData`, `.swiftpm`                                     |
-| **rust**        | `target`                                                      |
-| **unity**       | `Library`, `Temp`, `Obj`                                      |
-| **infra**       | `.serverless`, `.vercel`, `.terraform` 등                     |
-| **all**         | 위 모든 프로필의 targets 합집합                               |
+| 프로필             | 대상 폴더 예시                                                |
+| ------------------ | ------------------------------------------------------------- |
+| **flutter** (기본) | `build`, `.dart_tool`, `.fvm`, `ephemeral`, `.gradle`, `Pods` |
+| **python**         | `__pycache__`, `.venv`, `.pytest_cache` 등                    |
+| **java**           | `target`, `.gradle`, `out`                                    |
+| **node**           | `node_modules`, `.next`, `.nuxt`, `coverage` 등               |
+| **android**        | `.cxx`, `externalNativeBuild`                                 |
+| **swift**          | `DerivedData`, `.swiftpm`                                     |
+| **rust**           | `target`                                                      |
+| **unity**          | `Library`, `Temp`, `Obj`                                      |
+| **infra**          | `.serverless`, `.vercel`, `.terraform` 등                     |
+| **all**            | 위 모든 프로필의 targets 합집합                               |
 
 [@src/core/constants/profiles.constants.ts#6-161](../src/core/constants/profiles.constants.ts#L6-L161)
 
@@ -200,7 +202,7 @@
 
 ## 10) 빠른 이해를 위한 실행 시퀀스
 
-1. 사용자가 `npkill` 실행
+1. 사용자가 `flutterkill` 실행
 2. `src/index.ts`가 direct 실행 감지 후 `main()` 호출
 3. `main()`이 서비스 인스턴스 생성 및 `CliController` 주입
 4. `init()`에서 설정/인자 파싱

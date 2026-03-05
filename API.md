@@ -1,9 +1,9 @@
-# NPKill API
+# Flutterkill API
 
 This document does not include all project documentation at this stage. It brings together the basic concepts.
 For more details see the project interfaces.
 
-- [NPKill API](#npkill-api)
+- [Flutterkill API](#flutterkill-api)
   - [Interface: `Npkill`](#interface-npkill)
     - [`startScan$(rootPath, options?)`](#startscanrootpath-options)
     - [`stopScan()`](#stopscan)
@@ -110,7 +110,7 @@ Validates whether a folder is suitable for scanning.
 
 ### `getVersion()`
 
-Returns the current version of npkill from `package.json`.
+Returns the current version of flutterkill from `package.json`.
 
 - **Returns**: `string`
 
@@ -209,7 +209,7 @@ This is a minimal example where:
 3. Get the total size of the directory
 
 ```ts
-import { Npkill } from 'npkill';
+import { Npkill } from 'flutterkill';
 import { mergeMap, filter, map } from 'rxjs';
 
 const npkill = new Npkill();

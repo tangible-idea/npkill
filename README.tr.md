@@ -1,28 +1,25 @@
 <p align="center">
-  <img src="https://npkill.js.org/img/npkill-text-outlined.svg" width="320" alt="npkill logo" />
-  <img src="https://npkill.js.org/img/npkill-scope-mono.svg" width="50" alt="npkill logo scope" />
+  <img src="./docs/npkill-text-clean.svg" width="380" alt="flutterkill logo" />
 </p>
 <p align="center">
-<img alt="npm" src="https://img.shields.io/npm/dy/npkill.svg">
-<a href="#donations"><img src="https://img.shields.io/badge/donate-<3-red" alt="Donations Badge"/></a>
-<img alt="npm version" src="https://img.shields.io/npm/v/npkill.svg">
-<img alt="NPM" src="https://img.shields.io/npm/l/npkill.svg">
+<img alt="npm" src="https://img.shields.io/npm/dy/flutterkill.svg">
+<img alt="npm version" src="https://img.shields.io/npm/v/flutterkill.svg">
+<img alt="NPM" src="https://img.shields.io/npm/l/flutterkill.svg">
 </p>
 
-### Eski ve büyük <font color="red">**node_modules**</font> klasörlerini kolayca bulun ve **silin** :sparkles:
+### Eski ve büyük Flutter derleme artefaktlarını kolayca bulun ve **silin** :sparkles:
 
-<p align="center">
-  <img src="/docs/npkill-demo-0.10.0.gif" alt="npkill demo GIF" />
-</p>
+Bu araç, sisteminizdeki tüm Flutter/Dart derleme dizinlerini (`build`, `.dart_tool`, `.gradle`, `Pods`, vb.) ve kapladıkları alanı listelemenizi sağlar. Daha sonra, hangilerini silmek istediğinizi seçerek yer açabilirsiniz.
 
-Bu araç, sisteminizdeki tüm _node_modules_ dizinlerini ve kapladıkları alanı listelemenizi sağlar. Daha sonra, hangilerini silmek istediğinizi seçerek yer açabilirsiniz. Yaşasın!
+> **npkill** temel alınarak geliştirilmiştir ([github.com/voidcosmos/npkill](https://github.com/voidcosmos/npkill))
 
 ## i18n
 
-Npkill dokümantasyonunu uluslararası hale getirmek için çaba gösteriyoruz. İşte mevcut çevirilerin listesi:
+Flutterkill dokümantasyonunu uluslararası hale getirmek için çaba gösteriyoruz. İşte mevcut çevirilerin listesi:
 
 - [Endonezce](./README.id.md)
 - [İspanyolca](./README.es.md)
+- [한국어](./README.ko.md)
 - [Portekizce](./README.pt.md)
 - [Türkçe](./README.tr.md)
 
@@ -44,13 +41,15 @@ Npkill dokümantasyonunu uluslararası hale getirmek için çaba gösteriyoruz. 
 
 # :heavy_check_mark: Özellikler
 
-- **Alan Açın:** Makinenizde birikmiş, eski ve tozlu _node_modules_ klasörlerinden kurtulun.
+- **Alan Açın:** Makinenizde birikmiş, eski ve tozlu Flutter derleme artefaktlarından kurtulun.
+
+- **Akıllı Flutter Taraması:** Yalnızca `pubspec.yaml` içeren dizinleri (gerçek Flutter projeleri) tarar. Flutter SDK'yı otomatik olarak hariç tutar.
 
 - **Son Çalışma Alanı Kullanımı**: Çalışma alanındaki bir dosyayı en son ne zaman değiştirdiğinizi kontrol edin (bu, **last_mod** sütununda gösterilir).
 
-- **Çok Hızlı:** NPKILL TypeScript ile yazılmıştır, ancak aramalar düşük seviyede gerçekleştirilerek performans büyük ölçüde artırılır.
+- **Çok Hızlı:** Flutterkill TypeScript ile yazılmıştır, ancak aramalar düşük seviyede gerçekleştirilerek performans büyük ölçüde artırılır.
 
-- **Kullanımı Kolay:** Uzun komutlara elveda deyin. NPKILL kullanmak, node_modules listenizi okumak ve silmek için Del tuşuna basmak kadar basittir. Daha kolay olabilir mi? ;)
+- **Kullanımı Kolay:** Uzun komutlara elveda deyin. Flutterkill kullanmak, build klasörlerinizi okumak ve silmek için Del tuşuna basmak kadar basittir. Daha kolay olabilir mi? ;)
 
 - **Düşük Bağımlılık:** Hiçbir bağımlılığı yok denecek kadar az.
 
@@ -62,28 +61,28 @@ Kullanmak için gerçekten yüklemenize gerek yok!
 Basitçe aşağıdaki komutu kullanabilirsiniz:
 
 ```bash
-$ npx npkill
+$ npx flutterkill
 ```
 
 Ya da herhangi bir nedenle gerçekten yüklemek isterseniz:
 
 ```bash
-$ npm i -g npkill
+$ npm i -g flutterkill
 # Unix kullanıcılarının komutu sudo ile çalıştırması gerekebilir. Dikkatli olun.
 ```
 
-> NPKILL, Node 14’ten düşük sürümleri desteklemiyor. Eğer bu durum sizi etkiliyorsa, `npkill@0.8.3` sürümünü kullanabilirsiniz.
+> Flutterkill, Node 14’ten düşük sürümleri desteklemiyor. Eğer bu durum sizi etkiliyorsa, `flutterkill@0.8.3` sürümünü kullanabilirsiniz.
 
 <a name="usage"></a>
 
 # :clipboard: Kullanım
 
 ```bash
-$ npx npkill
-# Ya da global olarak yüklüyse sadece npkill kullanabilirsiniz.
+$ npx flutterkill
+# Ya da global olarak yüklüyse sadece flutterkill kullanabilirsiniz.
 ```
 
-Varsayılan olarak, npkill `npkill` komutunun çalıştırıldığı dizinden başlayarak node_modules klasörlerini tarar.
+Varsayılan olarak, flutterkill `flutterkill` komutunun çalıştırıldığı dizinden başlayarak Flutter derleme artefaktlarını tarar.
 
 Listelenen klasörler arasında <kbd>↓</kbd> ve <kbd>↑</kbd> tuşlarıyla gezinebilir, seçili klasörü silmek için <kbd>Space</kbd> veya <kbd>Del</kbd> tuşlarını kullanabilirsiniz.
 Ayrıca sonuçlar arasında gezinmek için <kbd>j</kbd> ve <kbd>k</kbd> tuşlarını da kullanabilirsiniz.
@@ -92,7 +91,7 @@ Seçili sonucun bulunduğu klasörü açmak için <kbd>o</kbd> tuşuna basabilir
 
 Çıkmak için, <kbd>Q</kbd> ya da <kbd>Ctrl</kbd> + <kbd>C</kbd>.
 
-**Önemli!** Sisteme kurulu bazı uygulamaların çalışması için node_modules klasörüne ihtiyacı vardır ve bu klasörlerin silinmesi uygulamaların bozulmasına yol açabilir. NPKILL, dikkatli olmanız için bu klasörleri :warning: simgesiyle vurgulayacaktır.
+**Önemli!** `build` veya `.dart_tool` klasörlerini silmek, bir sonraki derleme için `flutter pub get` ve tam yeniden derleme gerektirecektir. Flutterkill, hassas dizinleri :warning: simgesiyle vurgulayacaktır.
 
 <a name="options"></a>
 
@@ -113,7 +112,7 @@ Seçili sonucun bulunduğu klasörü açmak için <kbd>o</kbd> tuşuna basabilir
 | -t, --target                     | Aramak istediğiniz dizinlerin adını belirtin (varsayılan olarak node_modules).                                                                   |
 | -x, --exclude-hidden-directories | Gizli dizinleri ("nokta" dizinleri) arama kapsamı dışında bırak.                                                                                 |
 | --dry-run                        | Hiçbir şeyi silmez (rastgele bir gecikme ile simüle eder).                                                                                       |
-| -v, --version                    | npkill sürümünü gösterir.                                                                                                                        |
+| -v, --version                    | flutterkill sürümünü gösterir.                                                                                                                   |
 
 **Uyarı:** _Gelecek sürümlerde bazı komutlar değişebilir_
 
@@ -121,44 +120,26 @@ Seçili sonucun bulunduğu klasörü açmak için <kbd>o</kbd> tuşuna basabilir
 
 ## Örnekler
 
-- _projects_ dizininizdeki **node_modules** klasörlerini arayın:
+- _projects_ dizininizdeki Flutter derleme artefaktlarını arayın:
 
 ```bash
-npkill -d ~/projects
+flutterkill -d ~/projects
 
 # diğer alternatif:
 cd ~/projects
-npkill
+flutterkill
 ```
 
-- "dist" adlı dizinleri listeleyin ve hata oluşursa gösterin.
+- Belirli dizinleri aramadan hariç tutun:
 
 ```bash
-npkill --target dist -e
+flutterkill -d ~/projects --exclude "flutter_sdk, ignore-this"
 ```
 
-- Mor renkli imleç gösterilir... çünkü moru seviyorum!
+- Yedeklerinizdeki tüm Flutter derleme artefaktlarını otomatik olarak silin:
 
 ```bash
-npkill --color magenta
-```
-
-- _projects_ dizininizdeki **vendor** klasörlerini listeleyin, boyuta göre sırala ve boyutları GB cinsinden göster:
-
-```bash
-npkill -d '~/more projects' -gb --sort size --target vendor
-```
-
-- _projects_ dizininizdeki **node_modules** klasörlerini listeleyin, ancak _progress_ ve _ignore-this_ dizinlerindeki klasörleri hariç tutun:
-
-```bash
-npkill -d 'projects' --exclude "progress, ignore-this"
-```
-
-- Yedeklerinize gizlice karışmış tüm node_modules klasörlerini otomatik olarak silin:
-
-```bash
-npkill -d ~/backups/ --delete-all
+flutterkill -d ~/backups/ --delete-all
 ```
 
 <a name="setup-locally"></a>
@@ -167,10 +148,10 @@ npkill -d ~/backups/ --delete-all
 
 ```bash
 # -- Öncelikle, repoyu klonlayın.
-git clone https://github.com/voidcosmos/npkill.git
+git clone https://github.com/tangible-idea/flutterkill.git
 
 # -- Dizin içine gidin
-cd npkill
+cd flutterkill
 
 # -- Bağımlılıkları yükleyin
 npm install
@@ -225,33 +206,14 @@ Katkıda bulunmak isterseniz [CONTRIBUTING.md](.github/CONTRIBUTING.md) dosyası
 # :coffee: Bize bir kahve ısmarlayın
 
 <img align="right" width="300" src="https://npkill.js.org/img/cat-donation-cup.png">
-Boş zamanlarımızda, programlama sektörüne olan tutkumuz nedeniyle npkill'i geliştirdik.
-Gelecekte, tamamen buna odaklanmak istiyoruz ama önümüzde uzun bir yol var.
-
-Yine de işlerimizi yapmaya devam edeceğiz, ancak bağışlar yaptığımız işi desteklemenin birçok yolundan sadece biridir.
-
-<span class="badge-opencollective"><a href="https://opencollective.com/npkill/contribute" title="Donate to this project using Open Collective"><img src="https://img.shields.io/badge/open%20collective-donate-green.svg" alt="Open Collective donate button" /></a></span>
-
-### Teşekkürler!!
-
-## Destekçilerimize kocaman teşekkürler :heart:
-
-<a href="https://opencollective.com/npkill#backers" target="_blank"><img width="535" src="https://opencollective.com/npkill/tiers/backer.svg?width=535"></a>
-
----
-
-### Kripto alternatifi
-
-- btc: 1ML2DihUoFTqhoQnrWy4WLxKbVYkUXpMAX
-- bch: 1HVpaicQL5jWKkbChgPf6cvkH8nyktVnVk
-- eth: 0x7668e86c8bdb52034606db5aa0d2d4d73a0d4259
+Orijinal npkill, [Nya García Gallardo](https://github.com/NyaGarcia) ve [Juan Torres Gömez](https://github.com/zaldih) tarafından geliştirilmiştir. Flutterkill, [Mark Choi](https://github.com/tangible-idea) tarafından Flutter odaklı bir fork'tur.
 
 <a name="license"></a>
 
 # :scroll: Lisans
 
-MIT © [Nya García Gallardo](https://github.com/NyaGarcia) and [Juan Torres Gómez](https://github.com/zaldih)
+MIT © [Mark Choi](https://github.com/tangible-idea)
 
-:cat::baby_chick:
+> Orijinal npkill: MIT © [Nya García Gallardo](https://github.com/NyaGarcia) ve [Juan Torres Gömez](https://github.com/zaldih)
 
 ---

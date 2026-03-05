@@ -1,28 +1,25 @@
 <p align="center">
-  <img src="https://npkill.js.org/img/npkill-text-outlined.svg" width="320" alt="npkill logo" />
-  <img src="https://npkill.js.org/img/npkill-scope-mono.svg" width="50" alt="npkill logo scope" />
+  <img src="./docs/npkill-text-clean.svg" width="380" alt="flutterkill logo" />
 </p>
 <p align="center">
-<img alt="npm" src="https://img.shields.io/npm/dy/npkill.svg">
-<a href="#donations"><img src="https://img.shields.io/badge/donate-<3-red" alt="Donations Badge"/></a>
-<img alt="npm version" src="https://img.shields.io/npm/v/npkill.svg">
-<img alt="NPM" src="https://img.shields.io/npm/l/npkill.svg">
+<img alt="npm" src="https://img.shields.io/npm/dy/flutterkill.svg">
+<img alt="npm version" src="https://img.shields.io/npm/v/flutterkill.svg">
+<img alt="NPM" src="https://img.shields.io/npm/l/flutterkill.svg">
 </p>
 
-### Mudah menemukan dan **menghapus** folder <font color="red">**node_modules**</font> yang lama dan berat :sparkles:
+### Mudah menemukan dan **menghapus** artefak build Flutter yang lama dan berat :sparkles:
 
-<p align="center">
-  <img src="/docs/npkill-demo-0.10.0.gif" alt="npkill demo GIF" />
-</p>
+Alat ini memungkinkan Anda untuk mencantumkan semua direktori build Flutter/Dart (`build`, `.dart_tool`, `.gradle`, `Pods`, dll.) di sistem Anda, serta ruang yang mereka gunakan. Anda kemudian dapat memilih mana yang ingin Anda hapus untuk mengosongkan ruang penyimpanan.
 
-Alat ini memungkinkan Anda untuk mencantumkan semua direktori _node_modules_ di sistem Anda, serta ruang yang mereka gunakan. Anda kemudian dapat memilih mana yang ingin Anda hapus untuk mengosongkan ruang penyimpanan. Yay!
+> Berdasarkan **npkill** ([github.com/voidcosmos/npkill](https://github.com/voidcosmos/npkill))
 
 ## i18n
 
-Kami berusaha untuk menerjemahkan dokumen Npkill ke berbagai bahasa. Berikut daftar terjemahan yang tersedia:
+Kami berusaha untuk menerjemahkan dokumen Flutterkill ke berbagai bahasa. Berikut daftar terjemahan yang tersedia:
 
 - [Español](./README.es.md)
 - [Indonesian](./README.id.md)
+- [한국어](./README.ko.md)
 - [Portugis](./README.pt.md)
 - [Turki](./README.tr.md)
 
@@ -44,13 +41,15 @@ Kami berusaha untuk menerjemahkan dokumen Npkill ke berbagai bahasa. Berikut daf
 
 # :heavy_check_mark: Fitur
 
-- **Bersihkan Ruang:** Hapus _node_modules_ lama yang tidak digunakan yang memenuhi mesin Anda.
+- **Bersihkan Ruang:** Hapus artefak build Flutter lama yang tidak digunakan yang memenuhi mesin Anda.
+
+- **Pemindaian Flutter Cerdas:** Hanya memindai direktori dengan `pubspec.yaml` (proyek Flutter nyata). Secara otomatis mengecualikan Flutter SDK.
 
 - **Penggunaan Terakhir Workspace:** Cek kapan terakhir kali Anda mengubah file di workspace (ditunjukkan di kolom **last_mod**).
 
-- **Sangat Cepat:** NPKILL ditulis dalam TypeScript, tetapi pencarian dilakukan di tingkat rendah, sehingga performanya sangat baik.
+- **Sangat Cepat:** Flutterkill ditulis dalam TypeScript, tetapi pencarian dilakukan di tingkat rendah, sehingga performanya sangat baik.
 
-- **Mudah Digunakan:** Tidak perlu perintah panjang. Menggunakan npkill semudah membaca daftar _node_modules_ Anda, dan menekan tombol Del untuk menghapusnya. Bisa lebih mudah dari itu?
+- **Mudah Digunakan:** Tidak perlu perintah panjang. Menggunakan flutterkill semudah membaca daftar folder build Anda, dan menekan tombol Del untuk menghapusnya. Bisa lebih mudah dari itu?
 
 - **Ringkas:** Hampir tidak memiliki dependensi.
 
@@ -61,28 +60,26 @@ Kami berusaha untuk menerjemahkan dokumen Npkill ke berbagai bahasa. Berikut daf
 Anda tidak perlu menginstal untuk menggunakannya! Cukup gunakan perintah berikut:
 
 ```bash
-$ npx npkill
+$ npx flutterkill
 ```
 
 Atau jika Anda benar-benar ingin menginstalnya:
 
 ```bash
-$ npm i -g npkill
+$ npm i -g flutterkill
 # Pengguna Unix mungkin perlu menjalankan perintah dengan sudo. Gunakan dengan hati-hati
 ```
-
-> NPKILL tidak mendukung node<v14. Jika ini memengaruhi Anda, gunakan `npkill@0.8.3`
 
 <a name="usage"></a>
 
 # :clipboard: Penggunaan
 
 ```bash
-$ npx npkill
-# atau cukup npkill jika telah diinstal secara global
+$ npx flutterkill
+# atau cukup flutterkill jika telah diinstal secara global
 ```
 
-Secara default, npkill akan memindai _node_modules_ mulai dari jalur tempat perintah `npkill` dijalankan.
+Secara default, flutterkill akan memindai artefak build Flutter mulai dari jalur tempat perintah `flutterkill` dijalankan.
 
 Pindah di antara folder yang terdaftar menggunakan <kbd>↓</kbd> <kbd>↑</kbd>, dan gunakan <kbd>Space</kbd> atau <kbd>Del</kbd> untuk menghapus folder yang dipilih. Anda juga dapat menggunakan <kbd>j</kbd> dan <kbd>k</kbd> untuk bergerak di antara hasil.
 
@@ -90,7 +87,7 @@ Anda dapat membuka direktori tempat hasil yang dipilih berada dengan menekan <kb
 
 Untuk keluar, tekan <kbd>Q</kbd> atau <kbd>Ctrl</kbd> + <kbd>c</kbd> jika Anda pemberani.
 
-**Penting!** Beberapa aplikasi yang diinstal di sistem membutuhkan direktori _node_modules_ untuk berfungsi, dan menghapusnya dapat menyebabkan kerusakan. NPKILL akan menandainya dengan :warning: agar berhati-hati.
+**Penting!** Menghapus folder `build` atau `.dart_tool` berarti build berikutnya memerlukan `flutter pub get` dan rebuild penuh. Flutterkill akan menandai direktori sensitif dengan :warning: agar berhati-hati.
 
 <a name="options"></a>
 
@@ -111,7 +108,7 @@ Untuk keluar, tekan <kbd>Q</kbd> atau <kbd>Ctrl</kbd> + <kbd>c</kbd> jika Anda p
 | -t, --target                     | Tentukan nama direktori yang ingin Anda cari (default: node_modules)                                          |
 | -x, --exclude-hidden-directories | Kecualikan direktori tersembunyi dari pencarian.                                                              |
 | --dry-run                        | Tidak menghapus apa pun (hanya simulasi dengan delay acak).                                                   |
-| -v, --version                    | Tampilkan versi npkill                                                                                        |
+| -v, --version                    | Tampilkan versi flutterkill                                                                                   |
 
 **Peringatan:** _Di versi mendatang, beberapa perintah mungkin berubah._
 
@@ -119,38 +116,26 @@ Untuk keluar, tekan <kbd>Q</kbd> atau <kbd>Ctrl</kbd> + <kbd>c</kbd> jika Anda p
 
 ## Contoh
 
-- Cari direktori **node_modules** di direktori _projects_ Anda:
+- Cari artefak build Flutter di direktori _projects_ Anda:
 
 ```bash
-npkill -d ~/projects
+flutterkill -d ~/projects
 
 # alternatif lain:
 cd ~/projects
-npkill
+flutterkill
 ```
 
-- Daftar direktori bernama "dist" dan tampilkan kesalahan jika ada:
+- Kecualikan direktori tertentu dari pencarian:
 
 ```bash
-npkill --target dist -e
+flutterkill -d ~/projects --exclude "flutter_sdk, ignore-this"
 ```
 
-- Tampilkan kursor warna magenta... karena saya suka magenta!
+- Secara otomatis hapus semua artefak build Flutter di folder cadangan Anda:
 
 ```bash
-npkill --color magenta
-```
-
-- Daftar direktori **vendor** di _projects_, urutkan berdasarkan ukuran, dan tampilkan ukuran dalam GB:
-
-```bash
-npkill -d '~/more projects' -gb --sort size --target vendor
-```
-
-- Secara otomatis hapus semua _node_modules_ di folder cadangan Anda:
-
-```bash
-npkill -d ~/backups/ --delete-all
+flutterkill -d ~/backups/ --delete-all
 ```
 
 <a name="setup-locally"></a>
@@ -159,7 +144,7 @@ npkill -d ~/backups/ --delete-all
 
 ```bash
 # -- Pertama, kloning repositori
-git clone https://github.com/voidcosmos/npkill.git
+git clone https://github.com/tangible-idea/npkill.git
 
 # -- Masuk ke direktori
 cd npkill
@@ -216,32 +201,14 @@ Jika ingin berkontribusi, cek [CONTRIBUTING.md](.github/CONTRIBUTING.md).
 # :coffee: Buy us a coffee
 
 <img align="right" width="300" src="https://npkill.js.org/img/cat-donation-cup.png">
-Kami mengembangkan npkill di waktu luang karena kami mencintai pemrograman.
-
-Kami akan terus mengerjakan ini, tetapi donasi adalah salah satu cara mendukung apa yang kami lakukan.
-
-<span class="badge-opencollective"><a href="https://opencollective.com/npkill/contribute" title="Donate to this project using Open Collective"><img src="https://img.shields.io/badge/open%20collective-donate-green.svg" alt="Open Collective donate button" /></a></span>
-
-### Terima Kasih!!
-
-## Terima kasih banyak kepada pendukung kami :heart:
-
-<a href="https://opencollective.com/npkill#backers" target="_blank"><img width="535" src="https://opencollective.com/npkill/tiers/backer.svg?width=535"></a>
-
----
-
-### Alternatif Crypto
-
-- btc: 1ML2DihUoFTqhoQnrWy4WLxKbVYkUXpMAX
-- bch: 1HVpaicQL5jWKkbChgPf6cvkH8nyktVnVk
-- eth: 0x7668e86c8bdb52034606db5aa0d2d4d73a0d4259
+npkill asli dikembangkan oleh [Nya García Gallardo](https://github.com/NyaGarcia) dan [Juan Torres Gómez](https://github.com/zaldih). Flutterkill adalah fork fokus Flutter oleh [Mark Choi](https://github.com/tangible-idea).
 
 <a name="license"></a>
 
 # :scroll: Lisensi
 
-MIT © [Nya García Gallardo](https://github.com/NyaGarcia) dan [Juan Torres Gómez](https://github.com/zaldih)
+MIT © [Mark Choi](https://github.com/tangible-idea)
 
-:cat::baby_chick:
+> npkill asli: MIT © [Nya García Gallardo](https://github.com/NyaGarcia) dan [Juan Torres Gómez](https://github.com/zaldih)
 
 ---

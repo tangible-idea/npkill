@@ -1,28 +1,27 @@
 <p align="center">
-  <img src="https://npkill.js.org/img/npkill-text-outlined.svg" width="320" alt="npkill logo" />
-  <img src="https://npkill.js.org/img/npkill-scope-mono.svg" width="50" alt="npkill logo scope" />
+  <img src="./docs/npkill-text-clean.svg" width="380" alt="flutterkill logo" />
 </p>
 <p align="center">
-<img alt="npm" src="https://img.shields.io/npm/dy/npkill.svg">
-<a href="#donations"><img src="https://img.shields.io/badge/donate-<3-red" alt="Donations Badge"/></a>
-<img alt="npm version" src="https://img.shields.io/npm/v/npkill.svg">
-<img alt="NPM" src="https://img.shields.io/npm/l/npkill.svg">
+<img alt="npm" src="https://img.shields.io/npm/dy/flutterkill.svg">
+<img alt="npm version" src="https://img.shields.io/npm/v/flutterkill.svg">
+<img alt="NPM" src="https://img.shields.io/npm/l/flutterkill.svg">
 </p>
 
-### Encontre e **remova** facilemente pastas <font color="red">**node_modules**</font> antigas e pesadas :sparkles:
+### Encontre e **remova** facilmente artefatos de build do Flutter :sparkles:
 
-<p align="center">
-  <img src="/docs/npkill-demo-0.10.0.gif" alt="npkill demo GIF" />
-</p>
+Esta ferramenta permite que você liste os diretórios de build do Flutter/Dart (`build`, `.dart_tool`, `.gradle`, `Pods`, etc.) em seu sistema, bem como o espaço que ocupam. Então você pode selecionar quais deles deseja apagar para liberar espaço.
 
-Esta ferramenta permite que você liste as pastas _node_modules_ em seu sistema, bem como o espaço que ocupam. Então você pode selecionar quais deles deseja apagar para liberar espaço. ¡Yay!
+> Baseado em **npkill** ([github.com/voidcosmos/npkill](https://github.com/voidcosmos/npkill))
 
 ## i18n
 
-Estamos fazendo esforço para internacionalizar a documentação do Npkill. Aqui está uma lista das traduções disponíveis:
+Estamos fazendo esforço para internacionalizar a documentação do Flutterkill. Aqui está uma lista das traduções disponíveis:
 
 - [Español](./README.es.md)
+- [Indonesian](./README.id.md)
+- [한국어](./README.ko.md)
 - [Português](./README.pt.md)
+- [Turkish](./README.tr.md)
 
 ## Table of Contents
 
@@ -42,13 +41,15 @@ Estamos fazendo esforço para internacionalizar a documentação do Npkill. Aqui
 
 # :heavy_check_mark: Funcionalidades
 
-- **Liberar espaço:** Livre-se dos antigos e empoeirados node_modules que ocupam espaço em sua máquina.
+- **Liberar espaço:** Livre-se dos antigos e empoeirados artefatos de build do Flutter que ocupam espaço em sua máquina.
+
+- **Varredura inteligente do Flutter:** Apenas escaneia diretórios com `pubspec.yaml` (projetos Flutter reais). Exclui automaticamente o SDK do Flutter.
 
 - **Último Uso do Espaço de Trabalho**: Verifique quando foi a última vez que você modificou um arquivo no espaço de trabalho (indicado na coluna **última_modificação**).
 
-- **Muito rápido:** O NPKILL é escrito em TypeScript, mas as pesquisas são realizadas em um nível baixo, melhorando muito o desempenho.
+- **Muito rápido:** O Flutterkill é escrito em TypeScript, mas as pesquisas são realizadas em um nível baixo, melhorando muito o desempenho.
 
-- **Fácil de usar:** Diga adeus aos comandos longos. Usar o npkill é tão simples quanto ler uma lista de seus node_modules e pressionar Delete para se livrar deles. Pode ser mais fácil do que isso? ;)
+- **Fácil de usar:** Diga adeus aos comandos longos. Usar o flutterkill é tão simples quanto ler uma lista de suas pastas build e pressionar Delete para se livrar delas. Pode ser mais fácil do que isso? ;)
 
 - **Minificado:** Ele mal possui dependências.
 
@@ -60,28 +61,26 @@ Você nem precisa instalá-lo para usar!
 Basta usar o seguinte comando:
 
 ```bash
-$ npx npkill
+$ npx flutterkill
 ```
 
 Ou, se por algum motivo você realmente deseja instalá-lo:
 
 ```bash
-$ npm i -g npkill
+$ npm i -g flutterkill
 # Usuários do Unix podem precisar executar o comando com sudo. Tome cuidado.
 ```
-
-> O NPKILL não suporta versões node<v14. Se isso afeta você, use npkill@0.8.3.
 
 <a name="usage"></a>
 
 # :clipboard: Utilização
 
 ```bash
-$ npx npkill
-# ou apenas npkill se você instalou globalmente
+$ npx flutterkill
+# ou apenas flutterkill se você instalou globalmente
 ```
 
-Por padrão, o npkill fará a varredura em busca de node_modules a partir do local onde o comando npkill é executado.
+Por padrão, o flutterkill fará a varredura em busca de artefatos de build do Flutter a partir do local onde o comando flutterkill é executado.
 
 Para mover entre as pastas listadas, utilize as teclas <kbd>↓</kbd> e <kbd>↑</kbd>, e use <kbd>Space</kbd> ou <kbd>Del</kbd> para excluir a pasta selecionada.
 Você também pode usar <kbd>j</kbd> e <kbd>k</kbd> para se mover entre os resultados.
@@ -90,7 +89,7 @@ Para abrir o diretório onde o resultado selecionado está localizado, pressione
 
 Para sair, use <kbd>Q</kbd> ou <kbd>Ctrl</kbd> + <kbd>c</kbd> se você estiver se sentindo corajoso.
 
-**Importante!** Algumas aplicações instaladas no sistema precisam do diretório node_modules delas para funcionar, e excluí-los pode quebrá-las. O NPKILL irá destacá-los exibindo um :warning: para que você tenha cuidado.
+**Importante!** Excluir pastas `build` ou `.dart_tool` significa que o próximo build exigirá `flutter pub get` e uma recompilação completa. O Flutterkill irá destacar diretórios sensíveis exibindo um :warning: para que você tenha cuidado.
 
 <a name="options"></a>
 
@@ -111,7 +110,7 @@ Para sair, use <kbd>Q</kbd> ou <kbd>Ctrl</kbd> + <kbd>c</kbd> se você estiver s
 | -t, --target                     | Especifique o nome dos diretórios que deseja pesquisar (por padrão, é node_modules)                                                                                 |
 | -x, --exclude-hidden-directories | Excluir diretórios ocultos ("diretórios com ponto") da pesquisa.                                                                                                    |
 | --dry-run                        | Não exclui nada (irá simular com um atraso aleatório).                                                                                                              |
-| -v, --version                    | Mostrar versão do npkill                                                                                                                                            |
+| -v, --version                    | Mostrar versão do flutterkill                                                                                                                                       |
 
 **Aviso:** _No futuro alguns comandos podem mudar_
 
@@ -119,44 +118,26 @@ Para sair, use <kbd>Q</kbd> ou <kbd>Ctrl</kbd> + <kbd>c</kbd> se você estiver s
 
 ## Examples
 
-- Busque pastas **node_modules** no seu diretório de projetos:
+- Busque artefatos de build do Flutter no seu diretório de projetos:
 
 ```bash
-npkill -d ~/projetos
+flutterkill -d ~/projetos
 
 # alternativa:
 cd ~/projetos
-npkill
+flutterkill
 ```
 
-- Listar diretórios com o nome "dist" e mostrar erros, se houver algum:
+- Exclua diretórios específicos da busca:
 
 ```bash
-npkill --target dist -e
+flutterkill -d ~/projetos --exclude "flutter_sdk, ignorar"
 ```
 
-- Exibe o cursor na cor magenta... porque eu gosto de magenta!
+- Exclua automaticamente todos os artefatos de build do Flutter nos seus backups:
 
 ```bash
-npkill --bg-color magenta
-```
-
-- Listar pastas **vendor** no seu diretório de _projetos_, ordenar por tamanho e mostrar o tamanho em GB:
-
-```bash
-npkill -d '~/more projetos' -gb --sort size --target vendor
-```
-
-- Listar **node_modules** no seu diretório de _projetos_, exceto nas pastas _progresso_ e _ignorar_:
-
-```bash
-npkill -d 'projetos' --exclude "progresso, ignorar"
-```
-
-- Exclua automaticamente todos os node_modules que tenham entrado em seus backups:
-
-```bash
-npkill -d ~/backups/ --delete-all
+flutterkill -d ~/backups/ --delete-all
 ```
 
 <a name="setup-locally"></a>
@@ -165,7 +146,7 @@ npkill -d ~/backups/ --delete-all
 
 ```bash
 # -- Primeiramente, clone o repositório
-git clone https://github.com/voidcosmos/npkill.git
+git clone https://github.com/tangible-idea/npkill.git
 
 # -- Acesse a pasta
 cd npkill
@@ -223,32 +204,14 @@ Se você quer contribuir confira o [CONTRIBUTING.md](.github/CONTRIBUTING.md)
 # :coffee: Compre-nos um café
 
 <img align="right" width="300" src="https://npkill.js.org/img/cat-donation-cup.png">
-Desenvolvemos o npkill em nosso tempo livre, porque somos apaixonados pelo setor de programação. Amanhã, gostaríamos de nos dedicar mais a isso, mas antes, temos um longo caminho a percorrer.
-
-Continuaremos a fazer as coisas de qualquer maneira, mas as doações são uma das muitas formas de apoiar o que fazemos.
-
-<span class="badge-opencollective"><a href="https://opencollective.com/npkill/contribute" title="Faça uma doação para este projeto usando o Open Collective"><img src="https://img.shields.io/badge/open%20collective-donate-green.svg" alt="Open Collective donate button" /></a></span>
-
-### Obrigado!!
-
-## Um enorme agradecimento aos nossos apoiadores :heart:
-
-<a href="https://opencollective.com/npkill#backers" target="_blank"><img width="535" src="https://opencollective.com/npkill/tiers/backer.svg?width=535"></a>
-
----
-
-### via Crypto
-
-- btc: 1ML2DihUoFTqhoQnrWy4WLxKbVYkUXpMAX
-- bch: 1HVpaicQL5jWKkbChgPf6cvkH8nyktVnVk
-- eth: 0x7668e86c8bdb52034606db5aa0d2d4d73a0d4259
+O npkill original foi desenvolvido por [Nya García Gallardo](https://github.com/NyaGarcia) e [Juan Torres Gómez](https://github.com/zaldih). Flutterkill é um fork focado em Flutter por [Mark Choi](https://github.com/tangible-idea).
 
 <a name="license"></a>
 
 # :scroll: Licença
 
-MIT © [Nya García Gallardo](https://github.com/NyaGarcia) e [Juan Torres Gómez](https://github.com/zaldih)
+MIT © [Mark Choi](https://github.com/tangible-idea)
 
-:cat::baby_chick:
+> npkill original: MIT © [Nya García Gallardo](https://github.com/NyaGarcia) e [Juan Torres Gómez](https://github.com/zaldih)
 
 ---

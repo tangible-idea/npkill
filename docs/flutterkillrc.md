@@ -1,6 +1,6 @@
-# Config File - npkillrc
+# Config File - flutterkillrc
 
-You can customize the behavior of npkill through the config file (`.npkillrc` by default).
+You can customize the behavior of flutterkill through the config file (`.flutterkillrc` by default).
 
 ## Table of Contents
 
@@ -21,18 +21,18 @@ You can customize the behavior of npkill through the config file (`.npkillrc` by
 
 ## Location
 
-Npkill searches for the configuration file in the following order of priority:
+Flutterkill searches for the configuration file in the following order of priority:
 
 1. **Custom path** specified via `--config` flag
-2. **Current working directory**: `./.npkillrc`
-3. **User's home directory**: `~/.npkillrc`
+2. **Current working directory**: `./.flutterkillrc`
+3. **User's home directory**: `~/.flutterkillrc`
 
 The first configuration file found will be used.
 
 You can use `--config` in this way:
 
 ```bash
-npkill --config /path/to/your/config.json
+flutterkill --config /path/to/your/config.json
 ```
 
 ## Example
@@ -46,7 +46,7 @@ npkill --config /path/to/your/config.json
   "excludeSensitiveResults": true,
   "dryRun": false,
   "checkUpdates": true,
-  "defaultProfiles": ["node", "database"],
+  "defaultProfiles": ["flutter", "database"],
   "profiles": {
     "webdev": {
       "description": "Frontend web development artifacts and build outputs",
@@ -82,7 +82,7 @@ Absolute path from which the search will begin.
 **Type:** `string[]`  
 **Default:** `[]`
 
-Array of directory names to exclude from search. Npkill will skip these directories and their subdirectories.
+Array of directory names to exclude from search. Flutterkill will skip these directories and their subdirectories.
 
 ```json
 "exclude": ["production-project", "node_modules/.cache"]
@@ -155,7 +155,7 @@ Check for updates on startup.
 ### defaultProfiles
 
 **Type:** `string[]`  
-**Default:** `["node"]`
+**Default:** `["flutter"]`
 
 Define the profile names to be used by default. These can be either built-in or user-defined names.
 
@@ -193,7 +193,7 @@ You can check the existing ones with `--profiles` and even copy the output of th
 
 ## Error Handling
 
-Npkill will check that the configuration file is correct at each startup. This includes:
+Flutterkill will check that the configuration file is correct at each startup. This includes:
 
 - **Unknown properties**.
 - **Type checking**.
@@ -201,6 +201,6 @@ Npkill will check that the configuration file is correct at each startup. This i
 
 ### Testing Your Configuration
 
-To test if your `.npkillrc` is valid, simply run npkill:
+To test if your `.flutterkillrc` is valid, simply run flutterkill:
 
-To check that a file is valid, simply run npkill as usual. If there is an error, you will be informed exactly what the problem is.
+To check that a file is valid, simply run flutterkill as usual. If there is an error, you will be informed exactly what the problem is.
