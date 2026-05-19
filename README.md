@@ -64,13 +64,13 @@ You don't really need to install it to use it!
 Simply use the following command:
 
 ```bash
-$ npx flutterkill
+npx flutterkill
 ```
 
 Or if for some reason you really want to install it:
 
 ```bash
-$ npm i -g flutterkill
+npm i -g flutterkill
 # Unix users may need to run the command with sudo. Go carefully
 ```
 
@@ -79,7 +79,7 @@ $ npm i -g flutterkill
 # :clipboard: Usage
 
 ```bash
-$ npx flutterkill
+npx flutterkill
 # or just flutterkill if installed globally
 ```
 
